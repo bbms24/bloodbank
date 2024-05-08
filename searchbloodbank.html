@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Style Link -->
+    <link rel="stylesheet" href="css/search.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Start -->
+    <script src="js/cities.js"></script>
+    <title>Search BloodBank</title>
+</head>
+<body>
+    
+    <nav class="navbar">
+        
+        <!-- LOGO -->
+          <div class="logo">Blood Bank Management System</div>
+          
+          <!-- NAVIGATION MENU -->
+          <ul class="nav-links">
+            
+            <!-- USING CHECKBOX-->
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            
+            <!-- NAVIGATION MENUS -->
+            <div class="menu">
+              <li><a href="index.html">Home</a></li>
+              <li class="services">
+              <a href="#">Register</a>
+              
+              <!-- DROPDOWN MENU -->
+              <ul class="dropdown">
+                  <li><a href="userform.html">User/Donor Register </a></li>
+                  <li><a href="bloodbankform.html">BloodBank Register</a></li>
+                </ul></li>
+              <li class="services">
+                <a href="#">Login</a>
+  
+                <ul class="dropdown">
+                  <li><a href="userlogin.html">User Login </a></li>
+                  <li><a href="bloodbanklogin.html">BloodBank Login</a></li>
+                  <li><a href="adminlogin.html">Admin Login</a></li>
+                </ul>
+              </li>
+              <li><a href="searchdonor.html">Blood Stock</a></li>
+            </div>
+          </ul>
+        </nav>
+
+    <div class="header">
+        <img src="images/drop.png">
+        <h2>Search Blood Bank Near You</h2>
+    </div>
+
+    <div id="container" class="container">
+      <div class = "form">    
+
+        <div>
+          State: <br>
+            <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control"></select>
+            <br><br>
+        </div>
+
+        <div>
+        City: <br>
+          <select id ="state" class="form-control"></select>
+          <br><br>
+          <script type="text/javascript">print_state("sts");</script>
+        </div>
+
+        <div>
+          <button onclick="get_data1()"> Search </button>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="container4">
+    <div style="display:flex; justify-content:center;" class="small">
+        <table id="root">
+          <tr>
+            <th>Bloodbank Name:</th>
+            <th>License Number:</th>
+            <th>Mail:</th>
+            <th>State:</th>
+            <th>City:</th>
+            <th>Address:</th>
+          </tr>
+        </table>
+    </div>
+
+        <div class="footer1">
+        </div>
+</div>
+
+
+    <div class="footer">
+        <img src="images/footer.png">
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+    <script type="text/javascript">
+        const firebaseConfig = {
+          apiKey: "AIzaSyAmzyQUE9Sfnj69nQx6nUa3d92Q2pjCVoc",
+        authDomain: "trial-c22b4.firebaseapp.com",
+        projectId: "trial-c22b4",
+        storageBucket: "trial-c22b4.appspot.com",
+        messagingSenderId: "411863071974",
+        appId: "1:411863071974:web:90bc1acdbf04dde8ba4f27"
+        };
+ 
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script type="text/javascript" src="js/searchdonor.js"></script>
+
+</body>
+</html>

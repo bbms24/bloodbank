@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Style Link -->
+    <link rel="stylesheet" href="css/form.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Start -->
+    <script src="js/cities.js"></script>
+    <title>Register</title>
+</head>
+<body>
+    
+    <nav class="navbar">
+        
+        <!-- LOGO -->
+          <div class="logo">Blood Bank Management System</div>
+          
+          <!-- NAVIGATION MENU -->
+          <ul class="nav-links">
+            
+            <!-- USING CHECKBOX-->
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            
+            <!-- NAVIGATION MENUS -->
+            <div class="menu">
+              <li><a href="index.html">Home</a></li>
+              <li class="services">
+              <a href="#">Register</a>
+              
+              <!-- DROPDOWN MENU -->
+              <ul class="dropdown">
+                  <li><a href="userform.html">User/Donor Register </a></li>
+                  <li><a href="bloodbankform.html">BloodBank Register</a></li>
+                </ul></li>
+              <li class="services">
+                <a href="#">Login</a>
+  
+                <ul class="dropdown">
+                  <li><a href="userlogin.html">User Login </a></li>
+                  <li><a href="bloodbanklogin.html">BloodBank Login</a></li>
+                  <li><a href="adminlogin.html">Admin Login</a></li>
+                </ul>
+              </li>
+              <li><a href="searchdonor.html">Blood Stock</a></li>
+            </div>
+          </ul>
+        </nav>
+    <div class="header">
+        <img src="images/drop.png">
+        <h2>Blood Donor Registration Form</h2>
+    </div>
+
+    <div class="container">
+        <form id="helloo">
+        <div>
+            Name : <br>
+            <input type="text" pattern="[a-zA-Z][a-zA-Z ]{2,}" placeholder="Your Name" id="user" required>
+            <br><br>
+        </div>
+
+        <div>
+            Gender: <br>
+            <select name="gender" id="gender" required>
+                <option label="Select Gender" value=""></option>
+                <option id="male" value="male">Male</option>
+                <option id="female" value="female">Female</option>
+                <option id="other" value="other">Other</option>
+            </select>
+            <br><br>
+        </div>
+            Birth Date: <br>
+            <input type="date" placeholder="Date of Birth" id="birth" label="Date of Birth" value="Date of Birth" required>
+            <br><br>
+        
+        <div>
+            Blood Group:<br>
+            <select name="blood" id="blood" required>
+                <option label="Select Blood Group" value=""></option>
+                <option id="A" value="A">A+</option>
+                <option id="O" value="O">O+</option>
+                <option id="B" value="B">B+</option>
+                <option id="AB" value="AB">AB+</option>
+                <option id="An" value="An">A-</option>
+                <option id="On" value="On">O-</option>
+                <option id="Bn" value="Bn">B-</option>
+                <option id="ABn" value="ABn">AB-</option>
+            </select>
+            <br><br>
+        </div>
+
+        <div>
+            Phone Number:<br>
+            <input type="text" pattern="[6-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" id="number" placeholder="Mobile number" required>
+            <br><br>
+        </div>
+        
+            <div>
+            Email:<br>
+            <input type="email" placeholder="Your Email" id="mail" required>
+            <!-- oninvalid = "this.setCustomValidity('Try Again')" -->
+            <br><br>
+            </div>
+
+            <div>
+            Password:<br>
+            <input type="password" placeholder="Enter password here" id="pass" required>
+            <br><br>
+            </div>
+
+            <div>
+            State: <br>
+            <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+            <br><br>
+            </div>
+
+            <div>
+            City: <br>
+            <select id ="state" class="form-control" required></select>
+            <br><br>
+            <script type="text/javascript">print_state("sts");</script>
+            </div>
+
+            <div>
+            Address:<br>
+            <textarea id="address" placeholder="Write address here" required></textarea>
+            <br><br>
+            </div>
+
+            <div>
+            Last date of Blood Donation:<br>
+            <input type="date" name="date" id="date" required>
+            <br><br>
+            </div>
+
+            <div>
+            <button onclick="register()"> Submit </button>
+            </div>
+          </form>
+    </div>
+
+    <div class="footer">
+        <img src="images/footer.png">
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+    <script type="text/javascript">
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmzyQUE9Sfnj69nQx6nUa3d92Q2pjCVoc",
+            authDomain: "trial-c22b4.firebaseapp.com",
+            projectId: "trial-c22b4",
+            storageBucket: "trial-c22b4.appspot.com",
+            messagingSenderId: "411863071974",
+            appId: "1:411863071974:web:90bc1acdbf04dde8ba4f27"
+            };
+ 
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script type="text/javascript" src="js/userform1.js"></script>
+
+</body>
+</html>
